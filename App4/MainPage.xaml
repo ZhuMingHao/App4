@@ -10,20 +10,20 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button
             x:Name="TestButton"
-            Margin="148,304,0,304"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
             Click="TestButton_Click"
             Content="button">
-            <Button.RenderTransform>
-                <CompositeTransform x:Name="ButtonTransFrom" Rotation="0" />
-            </Button.RenderTransform>
+            <Button.Projection>
+                <PlaneProjection x:Name="Projection" />
+            </Button.Projection>
         </Button>
         <Grid.Resources>
             <Storyboard x:Name="myStoryBoard">
                 <DoubleAnimation
-                    Storyboard.TargetName="ButtonTransFrom"
-                    Storyboard.TargetProperty="Rotation"
-                    From="0"
-                    To="-90"
+                    x:Name="MyAnimation"
+                    Storyboard.TargetName="Projection"
+                    Storyboard.TargetProperty="RotationZ"
                     Duration="0:0:1" />
             </Storyboard>
         </Grid.Resources>

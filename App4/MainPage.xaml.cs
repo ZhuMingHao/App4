@@ -24,9 +24,11 @@ namespace App4
     public sealed partial class MainPage : Page
     {
         private SimpleOrientationSensor simpleorientation;
+        private double? angle = 0;
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = angle;
             simpleorientation = SimpleOrientationSensor.GetDefault();
             if (simpleorientation != null)
             {
@@ -72,7 +74,11 @@ namespace App4
 
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            MyAnimation.From = angle;
+            MyAnimation.To = angle + 90;
+            myStoryBoard.Begin();
+            angle = MyAnimation.To;
+          
         }
     }
 }
