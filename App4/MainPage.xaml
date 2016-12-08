@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="App4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:App4"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button
+            x:Name="TestButton"
+            Margin="148,304,0,304"
+            Click="TestButton_Click"
+            Content="button">
+            <Button.RenderTransform>
+                <CompositeTransform x:Name="ButtonTransFrom" Rotation="0" />
+            </Button.RenderTransform>
+        </Button>
+        <Grid.Resources>
+            <Storyboard x:Name="myStoryBoard">
+                <DoubleAnimation
+                    Storyboard.TargetName="ButtonTransFrom"
+                    Storyboard.TargetProperty="Rotation"
+                    From="0"
+                    To="-90"
+                    Duration="0:0:1" />
+            </Storyboard>
+        </Grid.Resources>
+    </Grid>
+
+</Page>
